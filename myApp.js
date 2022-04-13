@@ -13,7 +13,8 @@ var app = express();
 
 
 app.get("/", (req, res) => {
-  res.send("Hello Express")
+  formTemplate = __dirname + "/views/index.html"
+  res.sendFile(formTemplate)
 })
 
 
