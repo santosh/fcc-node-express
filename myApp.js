@@ -2,6 +2,14 @@ var express = require('express');
 var app = express();
 require('dotenv').config()
 
+
+app.use((req, res, next) => {
+  console.log(`${req.method} ${req.path} - ${req.ip}`);
+  next()
+})
+
+
+
 let staticPath = __dirname + "/public"
 
 
@@ -19,24 +27,6 @@ app.get("/json", (req, res) => {
   }
   res.json({ "message": message })
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
